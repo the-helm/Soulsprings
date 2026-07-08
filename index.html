@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soulsprings Wellness Spa — Luxury Beauty & Wellness Nairobi</title>
+    <meta name="description" content="Experience personalized beauty, wellness, and self-care in a luxurious environment. Book your premium spa experience in Nairobi." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --navy: #1F2A44;
+            --lavender: #BFAED2;
+            --coral: #E59B84;
+            --gold: #D6B98C;
+            --pearl: #FCFAF8;
+            --stone: #F3F0EC;
+            --charcoal: #2D2D2D;
+            --glass-bg: rgba(255, 255, 255, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --shadow-soft: 0 20px 60px rgba(31, 42, 68, 0.08);
+            --shadow-glass: 0 8px 32px rgba(31, 42, 68, 0.06);
+            --radius-lg: 32px;
+            --radius-md: 20px;
+            --radius-sm: 12px;
+            --transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-heading: 'Playfair Display', 'Times New Roman', serif;
+            --font-body: 'Inter', 'Manrope', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        body {
+            font-family: var(--font-body);
+            background: var(--pearl);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--pearl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #loader.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-ring {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 3px solid var(--stone);
+            border-top-color: var(--gold);
+            animation: spin 1s linear infinite;
+        }
+        .loader-text {
+            margin-top: 24px;
+            font-family: var(--font-heading);
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--navy);
+            opacity: 0.6;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--stone);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--lavender);
+            border-radius: 10px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--navy);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(31, 42, 68, 0.15);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(31, 42, 68, 0.25);
+            background: #25335a;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 1.5px solid var(--navy);
+        }
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(31, 42, 68, 0.15);
+        }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy);
+            box-shadow: 0 8px 24px rgba(214, 185, 140, 0.25);
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(214, 185, 140, 0.4);
+            background: #dcc49e;
+        }
+        .btn-coral {
+            background: var(--coral);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(229, 155, 132, 0.25);
+        }
+        .btn-coral:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(229, 155, 132, 0.4);
+            background: #e8a892;
+        }
+        .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+        }
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+        .btn-sm {
+            padding: 12px 28px;
+            font-size: 13px;
+        }
+
+        /* ===== GLASS CARD ===== */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-glass);
+        }
+
+        /* ===== HEADINGS ===== */
+        .heading {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        .heading-xl {
+            font-size: clamp(48px, 8vw, 88px);
+        }
+        .heading-lg {
+            font-size: clamp(36px, 5vw, 56px);
+        }
+        .heading-md {
+            font-size: clamp(28px, 3.5vw, 40px);
+        }
+        .heading-sm {
+            font-size: clamp(20px, 2vw, 28px);
+        }
+        .subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(45, 45, 45, 0.7);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+        .subtitle-light {
+            color: rgba(255, 255, 255, 0.75);
+        }
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .text-gold {
+            color: var(--gold);
+        }
+        .text-navy {
+            color: var(--navy);
+        }
+        .text-coral {
+            color: var(--coral);
+        }
+        .text-lavender {
+            color: var(--lavender);
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== SECTION SPACING ===== */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            mix-blend-mode: normal;
+        }
+        nav.scrolled {
+            background: rgba(252, 250, 248, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(31, 42, 68, 0.06);
+            padding: 12px 0;
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--lavender), var(--gold));
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+        .nav-links a {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+        .nav-cta {
+            padding: 10px 28px;
+            border-radius: 60px;
+            background: var(--navy);
+            color: #fff !important;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .nav-cta:hover {
+            background: #25335a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(31, 42, 68, 0.2);
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--charcoal);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 24px;
+                font-size: 13px;
+            }
+        }
+        @media (max-width: 820px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(252, 250, 248, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 32px;
+                font-size: 20px;
+                transform: translateX(100%);
+                transition: var(--transition);
+                padding: 40px;
+                z-index: 999;
+            }
+            .nav-links.open {
+                transform: translateX(0);
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1000;
+            }
+            .nav-cta {
+                font-size: 16px;
+                padding: 14px 40px;
+            }
+            nav .container {
+                position: relative;
+                z-index: 1001;
+            }
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--pearl);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(191, 174, 210, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(214, 185, 140, 0.10) 0%, transparent 50%);
+            z-index: 0;
+        }
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.08;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23fcfaf8" width="1200" height="800"/><circle cx="200" cy="200" r="180" fill="%23bfaed2" opacity="0.1"/><circle cx="900" cy="600" r="240" fill="%23d6b98c" opacity="0.08"/><circle cx="600" cy="400" r="300" fill="%23e59b84" opacity="0.05"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 40px 0;
+        }
+        .hero-text .heading {
+            margin-bottom: 24px;
+        }
+        .hero-text .heading span {
+            background: linear-gradient(135deg, var(--lavender), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: rgba(45, 45, 45, 0.7);
+            max-width: 480px;
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-visual-inner {
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 4/5;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(145deg, var(--stone), var(--pearl));
+            box-shadow: 0 40px 80px rgba(31, 42, 68, 0.06);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-visual-inner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(191, 174, 210, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(214, 185, 140, 0.10) 0%, transparent 50%);
+        }
+        .hero-visual-inner .placeholder-icon {
+            font-size: 80px;
+            opacity: 0.2;
+            filter: grayscale(1);
+        }
+        .hero-floating {
+            position: absolute;
+            border-radius: var(--radius-md);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 16px 24px;
+            box-shadow: var(--shadow-glass);
+            font-size: 13px;
+            font-weight: 500;
+            animation: float 6s ease-in-out infinite;
+            color: var(--charcoal);
+        }
+        .hero-floating:nth-child(2) {
+            top: 8%;
+            right: -10%;
+            animation-delay: 1s;
+        }
+        .hero-floating:nth-child(3) {
+            bottom: 12%;
+            left: -8%;
+            animation-delay: 2s;
+        }
+        .hero-floating:nth-child(4) {
+            bottom: 20%;
+            right: -5%;
+            animation-delay: 3s;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-16px);
+            }
+        }
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-visual-inner {
+                max-width: 400px;
+            }
+            .hero-floating {
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-visual-inner {
+                max-width: 100%;
+                aspect-ratio: 3/4;
+            }
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--stone);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--lavender), var(--gold));
+            aspect-ratio: 4/5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 64px;
+            opacity: 0.6;
+            position: relative;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(31, 42, 68, 0.2), transparent);
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--pearl);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px rgba(31, 42, 68, 0.08);
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .stat-number .suffix {
+            font-size: 20px;
+            color: var(--gold);
+        }
+        .stat-label {
+            font-size: 13px;
+            color: rgba(45, 45, 45, 0.6);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-image {
+                aspect-ratio: 3/2;
+            }
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .stat-number {
+                font-size: 28px;
+            }
+        }
+
+        /* ===== SERVICES ===== */
+        #services {
+            background: var(--pearl);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .service-card {
+            background: var(--pearl);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px rgba(31, 42, 68, 0.08);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--lavender), var(--gold));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.7);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.6);
+            border-top: 1px solid var(--stone);
+            padding-top: 16px;
+        }
+        .service-meta .price {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 16px;
+        }
+        .service-meta .btn {
+            padding: 8px 20px;
+            font-size: 12px;
+        }
+        @media (max-width: 600px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== WHY SOULSPRINGS ===== */
+        #why {
+            background: var(--stone);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .why-card {
+            background: var(--pearl);
+            border-radius: var(--radius-md);
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(31, 42, 68, 0.08);
+        }
+        .why-card .icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .why-card h4 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .why-card p {
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.65);
+            line-height: 1.7;
+        }
+
+        /* ===== JOURNEY ===== */
+        #journey {
+            background: var(--pearl);
+        }
+        .journey-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 48px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            padding-left: 40px;
+        }
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--lavender), var(--gold));
+            opacity: 0.3;
+        }
+        .journey-step {
+            display: flex;
+            gap: 24px;
+            padding: 20px 0;
+            position: relative;
+            align-items: center;
+        }
+        .journey-step .dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--pearl);
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+            position: relative;
+            z-index: 1;
+        }
+        .journey-step .dot.active {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+        .journey-step .step-content h4 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .journey-step .step-content p {
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.6);
+        }
+        .journey-step .step-arrow {
+            font-size: 20px;
+            color: var(--gold);
+            margin-left: auto;
+        }
+        @media (max-width: 600px) {
+            .journey-timeline {
+                padding-left: 20px;
+            }
+            .journey-step .step-arrow {
+                display: none;
+            }
+        }
+
+        /* ===== PACKAGES ===== */
+        #packages {
+            background: var(--stone);
+        }
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .package-card {
+            background: var(--pearl);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+        }
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px rgba(31, 42, 68, 0.08);
+        }
+        .package-card.featured {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--pearl), #f8f5f0);
+        }
+        .package-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 20px;
+            border-radius: 60px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .package-card .pkg-name {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .package-card .pkg-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 16px 0;
+        }
+        .package-card .pkg-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(45, 45, 45, 0.5);
+        }
+        .package-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0 28px;
+            padding: 0;
+        }
+        .package-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .package-card ul li::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: 12px;
+        }
+        .package-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials {
+            background: var(--pearl);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .testimonial-card {
+            background: var(--stone);
+            border-radius: var(--radius-md);
+            padding: 32px 28px;
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+        }
+        .testimonial-card .stars {
+            color: var(--gold);
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .testimonial-card blockquote {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--charcoal);
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--navy);
+        }
+        .testimonial-card .author span {
+            font-weight: 400;
+            color: rgba(45, 45, 45, 0.5);
+        }
+        .google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--stone);
+            padding: 16px 32px;
+            border-radius: 60px;
+            margin-top: 40px;
+            box-shadow: var(--shadow-soft);
+        }
+        .google-badge .big {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .google-badge .big .star {
+            color: var(--gold);
+        }
+        .google-badge .label {
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.6);
+        }
+
+        /* ===== GALLERY ===== */
+        #gallery {
+            background: var(--stone);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 240px;
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .gallery-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--lavender), var(--gold));
+            opacity: 0.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #fff;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+            box-shadow: 0 16px 40px rgba(31, 42, 68, 0.12);
+        }
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 180px;
+            }
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            .gallery-item:nth-child(4) {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 140px;
+                gap: 12px;
+            }
+        }
+
+        /* ===== BENEFITS ===== */
+        #benefits {
+            background: var(--pearl);
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .benefit-item {
+            text-align: center;
+            padding: 32px 16px;
+            border-radius: var(--radius-md);
+            background: var(--stone);
+            transition: var(--transition);
+        }
+        .benefit-item:hover {
+            transform: translateY(-6px);
+            background: var(--pearl);
+            box-shadow: var(--shadow-soft);
+        }
+        .benefit-item .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .benefit-item h4 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+        }
+        .benefit-item p {
+            font-size: 13px;
+            color: rgba(45, 45, 45, 0.6);
+            margin-top: 4px;
+        }
+
+        /* ===== EXPERTS ===== */
+        #experts {
+            background: var(--stone);
+        }
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .expert-card {
+            background: var(--pearl);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        .expert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(31, 42, 68, 0.08);
+        }
+        .expert-card .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--lavender), var(--gold));
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #fff;
+            opacity: 0.7;
+        }
+        .expert-card h4 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+        }
+        .expert-card .role {
+            font-size: 13px;
+            color: rgba(45, 45, 45, 0.6);
+            margin: 4px 0 12px;
+        }
+        .expert-card .btn {
+            padding: 10px 24px;
+            font-size: 12px;
+        }
+
+        /* ===== BOOKING ===== */
+        #booking {
+            background: var(--pearl);
+        }
+        .booking-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 48px;
+        }
+        .booking-form {
+            background: var(--stone);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-soft);
+        }
+        .booking-form .form-group {
+            margin-bottom: 20px;
+        }
+        .booking-form label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(45, 45, 45, 0.08);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 15px;
+            background: var(--pearl);
+            transition: var(--transition);
+            color: var(--charcoal);
+        }
+        .booking-form input:focus,
+        .booking-form select:focus,
+        .booking-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(214, 185, 140, 0.15);
+        }
+        .booking-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .booking-form .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .booking-info {
+            padding: 40px 0;
+        }
+        .booking-info .info-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--stone);
+        }
+        .booking-info .info-item .icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: var(--stone);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .booking-info .info-item h4 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .booking-info .info-item p {
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.7);
+        }
+        .booking-info .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        @media (max-width: 1024px) {
+            .booking-wrap {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .booking-form {
+                padding: 32px 24px;
+            }
+        }
+        @media (max-width: 600px) {
+            .booking-form .row {
+                grid-template-columns: 1fr;
+            }
+            .booking-form {
+                padding: 24px 16px;
+            }
+        }
+
+        /* ===== GIFT ===== */
+        #gift {
+            background: var(--stone);
+        }
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .gift-item {
+            background: var(--pearl);
+            border-radius: var(--radius-sm);
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        .gift-item:hover {
+            transform: translateY(-4px);
+        }
+        .gift-item .icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .gift-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* ===== MEMBERSHIP ===== */
+        #membership {
+            background: var(--pearl);
+        }
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .membership-card {
+            background: var(--stone);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .membership-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-soft);
+        }
+        .membership-card.premium {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--pearl), #f8f5f0);
+        }
+        .membership-card h4 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+        }
+        .membership-card .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 12px 0;
+        }
+        .membership-card .price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(45, 45, 45, 0.5);
+        }
+        .membership-card ul {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin: 16px 0 24px;
+        }
+        .membership-card ul li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: rgba(45, 45, 45, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .membership-card ul li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ===== BLOG / FAQ ===== */
+        #faq {
+            background: var(--stone);
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(45, 45, 45, 0.06);
+            padding: 20px 0;
+        }
+        .faq-item .question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 17px;
+            font-family: var(--font-heading);
+            transition: color 0.3s;
+        }
+        .faq-item .question:hover {
+            color: var(--navy);
+        }
+        .faq-item .question .toggle {
+            font-size: 22px;
+            color: var(--gold);
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item .question .toggle.open {
+            transform: rotate(45deg);
+        }
+        .faq-item .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 15px;
+            color: rgba(45, 45, 45, 0.7);
+            line-height: 1.7;
+        }
+        .faq-item .answer.open {
+            max-height: 200px;
+            padding-top: 12px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px;
+        }
+        footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        footer .brand .logo {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        footer .brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 320px;
+        }
+        footer h4 {
+            color: #fff;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer ul li {
+            padding: 6px 0;
+        }
+        footer ul li a {
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        footer ul li a:hover {
+            color: var(--gold);
+        }
+        footer .socials {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        footer .socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        footer .socials a:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--navy);
+        }
+        footer .bottom {
+            grid-column: 1 / -1;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        footer .bottom a {
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        footer .bottom a:hover {
+            color: var(--gold);
+        }
+        @media (max-width: 900px) {
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+        @media (max-width: 600px) {
+            footer .container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            footer .bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            footer .bottom a {
+                margin: 0 10px;
+            }
+        }
+
+        /* ===== SUCCESS MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(31, 42, 68, 0.6);
+            backdrop-filter: blur(12px);
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-box {
+            background: var(--pearl);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(31, 42, 68, 0.2);
+            animation: modalIn 0.4s ease;
+        }
+        @keyframes modalIn {
+            from {
+                transform: scale(0.9) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+        .modal-box .icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+        }
+        .modal-box h3 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .modal-box p {
+            color: rgba(45, 45, 45, 0.7);
+            margin-bottom: 24px;
+        }
+        .modal-box .btn {
+            margin: 0 auto;
+        }
+
+        /* ===== RESPONSIVE UTILITIES ===== */
+        .hidden-mobile {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .hidden-mobile {
+                display: none;
+            }
+        }
+        .text-center-mobile {
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .text-center-mobile {
+                text-align: center;
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LOADER ===== -->
+    <div id="loader" role="status" aria-label="Loading">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Soulsprings</div>
+    </div>
+
+    <!-- ===== NAV ===== -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="logo" aria-label="Soulsprings Wellness Spa">
+                <span class="logo-icon"></span>
+                Soul<span>springs</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#packages" role="menuitem">Packages</a></li>
+                <li role="none"><a href="#booking" role="menuitem" class="nav-cta">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" aria-labelledby="hero-title">
+        <div class="hero-bg-image"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="section-label">Soulsprings Wellness Spa</span>
+                    <h1 id="hero-title" class="heading heading-xl">
+                        Where Beauty <br /><span>Meets Wellness</span>
+                    </h1>
+                    <p>
+                        Experience personalized beauty, wellness, and self-care in a luxurious environment
+                        designed to help you look radiant, feel confident, and leave completely refreshed.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#booking" class="btn btn-primary">Book Your Experience</a>
+                        <a href="#services" class="btn btn-secondary">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-visual-inner">
+                        <span class="placeholder-icon">✦</span>
+                    </div>
+                    <div class="hero-floating" style="top:8%;right:-10%;">✦ 5.0 ★</div>
+                    <div class="hero-floating" style="bottom:12%;left:-8%;">✦ Luxury Spa</div>
+                    <div class="hero-floating" style="bottom:20%;right:-5%;">✦ Nairobi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" aria-labelledby="about-title">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <span>✦</span>
+                </div>
+                <div class="about-text reveal reveal-delay-1">
+                    <span class="section-label">About Soulsprings</span>
+                    <h2 id="about-title" class="heading heading-lg">Holistic Wellness,<br />Luxury Care.</h2>
+                    <p style="font-size:16px;color:rgba(45,45,45,0.7);line-height:1.8;margin:20px 0 8px;">
+                        At Soulsprings, we blend holistic wellness with personalized beauty care. Our highly
+                        trained therapists use premium skincare products and modern treatment techniques to
+                        deliver an unparalleled luxury customer experience.
+                    </p>
+                    <p style="font-size:16px;color:rgba(45,45,45,0.7);line-height:1.8;">
+                        Every visit is a journey toward radiance, confidence, and deep relaxation.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item reveal reveal-delay-2">
+                            <div class="stat-number"><span class="counter" data-target="5">0</span><span class="suffix">.0</span></div>
+                            <div class="stat-label">★ Google Rating</div>
+                        </div>
+                        <div class="stat-item reveal reveal-delay-3">
+                            <div class="stat-number"><span class="counter" data-target="29">0</span><span class="suffix">+</span></div>
+                            <div class="stat-label">Reviews</div>
+                        </div>
+                        <div class="stat-item reveal reveal-delay-4">
+                            <div class="stat-number"><span class="counter" data-target="10">0</span><span class="suffix">+</span></div>
+                            <div class="stat-label">Beauty Services</div>
+                        </div>
+                        <div class="stat-item reveal reveal-delay-5">
+                            <div class="stat-number"><span class="counter" data-target="100">0</span><span class="suffix">%</span></div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" aria-labelledby="services-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Signature Services</span>
+                <h2 id="services-title" class="heading heading-lg">Designed for Your Radiance</h2>
+                <p class="subtitle mx-auto" style="margin-top:12px;">From massage therapy to luxury beauty treatments, every service is crafted to restore and elevate.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Massage Therapy -->
+                <div class="service-card reveal reveal-delay-1">
+                    <span class="service-icon">✦</span>
+                    <h3>Massage Therapy</h3>
+                    <p>Swedish, deep tissue, relaxation, aromatherapy &amp; couples massage.</p>
+                    <div class="service-meta">
+                        <span class="price">From KES 6,500</span>
+                        <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <!-- Beauty Lounge -->
+                <div class="service-card reveal reveal-delay-2">
+                    <span class="service-icon">✦</span>
+                    <h3>Beauty Lounge</h3>
+                    <p>Acrylic nails, manicure, pedicure &amp; expert nail art.</p>
+                    <div class="service-meta">
+                        <span class="price">From KES 3,500</span>
+                        <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <!-- Facial Studio -->
+                <div class="service-card reveal reveal-delay-3">
+                    <span class="service-icon">✦</span>
+                    <h3>Facial Studio</h3>
+                    <p>Hydrating, brightening, acne solutions &amp; anti-aging facials.</p>
+                    <div class="service-meta">
+                        <span class="price">From KES 5,500</span>
+                        <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <!-- Beauty Treatments -->
+                <div class="service-card reveal reveal-delay-4">
+                    <span class="service-icon">✦</span>
+                    <h3>Beauty Treatments</h3>
+                    <p>Body waxing, eyebrow threading, microblading &amp; tanning.</p>
+                    <div class="service-meta">
+                        <span class="price">From KES 2,500</span>
+                        <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <!-- Luxury Experiences -->
+                <div class="service-card reveal reveal-delay-5">
+                    <span class="service-icon">✦</span>
+                    <h3>Luxury Experiences</h3>
+                    <p>Spa packages, spa parties, bridal wellness &amp; birthday packages.</p>
+                    <div class="service-meta">
+                        <span class="price">From KES 15,000</span>
+                        <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY SOULSPRINGS ===== -->
+    <section id="why" aria-labelledby="why-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Why Soulsprings</span>
+                <h2 id="why-title" class="heading heading-lg">Where Luxury Meets Care</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal reveal-delay-1">
+                    <span class="icon">✦</span>
+                    <h4>Luxury Environment</h4>
+                    <p>Elegant interiors, natural light, and serene spaces designed for deep relaxation.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-2">
+                    <span class="icon">✦</span>
+                    <h4>Expert Professionals</h4>
+                    <p>Highly trained therapists dedicated to your wellness and beauty goals.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-3">
+                    <span class="icon">✦</span>
+                    <h4>Premium Products</h4>
+                    <p>Only the finest skincare and wellness products for exceptional results.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-4">
+                    <span class="icon">✦</span>
+                    <h4>Exceptional Hygiene</h4>
+                    <p>Immaculate standards of cleanliness and safety throughout your visit.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-5">
+                    <span class="icon">✦</span>
+                    <h4>Personalized Treatments</h4>
+                    <p>Every service tailored to your unique needs and preferences.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-6">
+                    <span class="icon">✦</span>
+                    <h4>Outstanding Care</h4>
+                    <p>Warm, attentive service that makes you feel truly valued and cared for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== JOURNEY ===== -->
+    <section id="journey" aria-labelledby="journey-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Your Wellness Journey</span>
+                <h2 id="journey-title" class="heading heading-lg">From Consultation to Radiance</h2>
+            </div>
+            <div class="journey-timeline">
+                <div class="journey-step reveal reveal-delay-1">
+                    <div class="dot active">1</div>
+                    <div class="step-content">
+                        <h4>Consultation</h4>
+                        <p>We listen to your needs and goals.</p>
+                    </div>
+                    <span class="step-arrow">↓</span>
+                </div>
+                <div class="journey-step reveal reveal-delay-2">
+                    <div class="dot">2</div>
+                    <div class="step-content">
+                        <h4>Personalized Treatment</h4>
+                        <p>A bespoke plan crafted just for you.</p>
+                    </div>
+                    <span class="step-arrow">↓</span>
+                </div>
+                <div class="journey-step reveal reveal-delay-3">
+                    <div class="dot">3</div>
+                    <div class="step-content">
+                        <h4>Relaxation</h4>
+                        <p>Unwind in our tranquil luxury space.</p>
+                    </div>
+                    <span class="step-arrow">↓</span>
+                </div>
+                <div class="journey-step reveal reveal-delay-4">
+                    <div class="dot">4</div>
+                    <div class="step-content">
+                        <h4>Beauty Enhancement</h4>
+                        <p>Expert care to reveal your natural glow.</p>
+                    </div>
+                    <span class="step-arrow">↓</span>
+                </div>
+                <div class="journey-step reveal reveal-delay-5">
+                    <div class="dot">5</div>
+                    <div class="step-content">
+                        <h4>Refresh &amp; Glow</h4>
+                        <p>Leave feeling radiant, confident, and renewed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PACKAGES ===== -->
+    <section id="packages" aria-labelledby="packages-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Luxury Packages</span>
+                <h2 id="packages-title" class="heading heading-lg">Experiences Curated for You</h2>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card reveal reveal-delay-1">
+                    <div class="pkg-name">Glow Escape</div>
+                    <div class="pkg-price">KES 12,500 <span>/ session</span></div>
+                    <ul>
+                        <li>Massage</li>
+                        <li>Facial</li>
+                        <li>Refreshments</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                </div>
+                <div class="package-card featured reveal reveal-delay-2">
+                    <div class="pkg-name">Beauty Retreat</div>
+                    <div class="pkg-price">KES 22,000 <span>/ session</span></div>
+                    <ul>
+                        <li>Massage</li>
+                        <li>Manicure &amp; Pedicure</li>
+                        <li>Facial</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                </div>
+                <div class="package-card reveal reveal-delay-3">
+                    <div class="pkg-name">Ultimate Luxury Day</div>
+                    <div class="pkg-price">KES 38,000 <span>/ session</span></div>
+                    <ul>
+                        <li>Massage</li>
+                        <li>Facial</li>
+                        <li>Body Treatment</li>
+                        <li>Beauty Services</li>
+                        <li>Relaxation Lounge</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary btn-sm">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" aria-labelledby="testimonials-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Testimonials</span>
+                <h2 id="testimonials-title" class="heading heading-lg">What Our Clients Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Absolutely amazing service and such a beautiful atmosphere. I felt completely renewed."</blockquote>
+                    <div class="author">— Grace M. <span>Nairobi</span></div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Professional staff and one of the best spa experiences in Nairobi. Highly recommend."</blockquote>
+                    <div class="author">— David K. <span>Nairobi</span></div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"I always leave feeling refreshed and confident. Soulsprings is my go-to wellness escape."</blockquote>
+                    <div class="author">— Sarah W. <span>Nairobi</span></div>
+                </div>
+            </div>
+            <div class="text-center reveal">
+                <div class="google-badge">
+                    <span class="big">5.0 <span class="star">★</span></span>
+                    <span class="label">29 Reviews · Google</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Lifestyle Gallery</span>
+                <h2 id="gallery-title" class="heading heading-lg">Moments of Luxury</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal reveal-delay-1"><span>✦</span><span class="caption">Spa Interiors</span></div>
+                <div class="gallery-item reveal reveal-delay-2"><span>✦</span><span class="caption">Nail Artistry</span></div>
+                <div class="gallery-item reveal reveal-delay-3"><span>✦</span><span class="caption">Facial Treatments</span></div>
+                <div class="gallery-item reveal reveal-delay-4"><span>✦</span><span class="caption">Massage Rooms</span></div>
+                <div class="gallery-item reveal reveal-delay-5"><span>✦</span><span class="caption">Reception</span></div>
+                <div class="gallery-item reveal reveal-delay-6"><span>✦</span><span class="caption">Wellness Moments</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENEFITS ===== -->
+    <section id="benefits" aria-labelledby="benefits-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Wellness Benefits</span>
+                <h2 id="benefits-title" class="heading heading-lg">Nourish Body &amp; Soul</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item reveal reveal-delay-1">
+                    <span class="icon">✦</span>
+                    <h4>Stress Relief</h4>
+                    <p>Melt away tension with expert therapies.</p>
+                </div>
+                <div class="benefit-item reveal reveal-delay-2">
+                    <span class="icon">✦</span>
+                    <h4>Healthy Skin</h4>
+                    <p>Radiant, glowing skin through premium care.</p>
+                </div>
+                <div class="benefit-item reveal reveal-delay-3">
+                    <span class="icon">✦</span>
+                    <h4>Confidence Boost</h4>
+                    <p>Look and feel your absolute best.</p>
+                </div>
+                <div class="benefit-item reveal reveal-delay-4">
+                    <span class="icon">✦</span>
+                    <h4>Better Sleep</h4>
+                    <p>Deep relaxation for restorative rest.</p>
+                </div>
+                <div class="benefit-item reveal reveal-delay-5">
+                    <span class="icon">✦</span>
+                    <h4>Relaxation</h4>
+                    <p>Peaceful moments in a luxurious setting.</p>
+                </div>
+                <div class="benefit-item reveal reveal-delay-6">
+                    <span class="icon">✦</span>
+                    <h4>Mental Wellness</h4>
+                    <p>Clarity and calm for a balanced mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERTS ===== -->
+    <section id="experts" aria-labelledby="experts-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Meet Our Experts</span>
+                <h2 id="experts-title" class="heading heading-lg">Passionate Professionals</h2>
+            </div>
+            <div class="experts-grid">
+                <div class="expert-card reveal reveal-delay-1">
+                    <div class="avatar">✦</div>
+                    <h4>Dr. Amina</h4>
+                    <div class="role">Lead Aesthetician · 12 Years</div>
+                    <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+                </div>
+                <div class="expert-card reveal reveal-delay-2">
+                    <div class="avatar">✦</div>
+                    <h4>James M.</h4>
+                    <div class="role">Massage Therapist · 9 Years</div>
+                    <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+                </div>
+                <div class="expert-card reveal reveal-delay-3">
+                    <div class="avatar">✦</div>
+                    <h4>Sophia N.</h4>
+                    <div class="role">Nail Artist · 8 Years</div>
+                    <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+                </div>
+                <div class="expert-card reveal reveal-delay-4">
+                    <div class="avatar">✦</div>
+                    <h4>Michael O.</h4>
+                    <div class="role">Wellness Coach · 11 Years</div>
+                    <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOKING ===== -->
+    <section id="booking" aria-labelledby="booking-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Reserve Your Session</span>
+                <h2 id="booking-title" class="heading heading-lg">Book Your Luxury Experience</h2>
+            </div>
+            <div class="booking-wrap">
+                <div class="booking-form reveal reveal-delay-1">
+                    <form id="bookingForm" novalidate>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Your full name" required />
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" placeholder="+254 7XX XXX XXX" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="you@example.com" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Preferred Service</label>
+                            <select id="service" required>
+                                <option value="">Select a service</option>
+                                <option value="massage">Massage Therapy</option>
+                                <option value="beauty">Beauty Lounge</option>
+                                <option value="facial">Facial Studio</option>
+                                <option value="treatment">Beauty Treatments</option>
+                                <option value="luxury">Luxury Experiences</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="therapist">Preferred Therapist</label>
+                            <select id="therapist">
+                                <option value="">Any available</option>
+                                <option value="amina">Dr. Amina</option>
+                                <option value="james">James M.</option>
+                                <option value="sophia">Sophia N.</option>
+                                <option value="michael">Michael O.</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <input type="time" id="time" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="requests">Special Requests</label>
+                            <textarea id="requests" placeholder="Any preferences or special requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:16px;padding:18px;">
+                            Reserve My Session
+                        </button>
+                    </form>
+                </div>
+                <div class="booking-info reveal reveal-delay-2">
+                    <div class="info-item">
+                        <span class="icon">✦</span>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Junction of Moi Avenue &amp; Kenyatta Avenue, Nairobi</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">✦</span>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>📞 0724 858593</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">✦</span>
+                        <div>
+                            <h4>Open Daily</h4>
+                            <p>Mon–Sun: 8:00 AM – 9:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254724858593" target="_blank" class="btn btn-secondary btn-sm">WhatsApp</a>
+                        <a href="tel:+254724858593" class="btn btn-secondary btn-sm">Call Now</a>
+                        <a href="#" class="btn btn-secondary btn-sm">Directions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GIFT ===== -->
+    <section id="gift" aria-labelledby="gift-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Gift Experiences</span>
+                <h2 id="gift-title" class="heading heading-lg">The Perfect Gift</h2>
+                <p class="subtitle mx-auto" style="margin-top:8px;">Luxury vouchers for every occasion.</p>
+            </div>
+            <div class="gift-grid">
+                <div class="gift-item reveal reveal-delay-1"><span class="icon">✦</span><h4>Birthdays</h4></div>
+                <div class="gift-item reveal reveal-delay-2"><span class="icon">✦</span><h4>Anniversaries</h4></div>
+                <div class="gift-item reveal reveal-delay-3"><span class="icon">✦</span><h4>Corporate Gifts</h4></div>
+                <div class="gift-item reveal reveal-delay-4"><span class="icon">✦</span><h4>Bridal Showers</h4></div>
+                <div class="gift-item reveal reveal-delay-5"><span class="icon">✦</span><h4>Spa Parties</h4></div>
+                <div class="gift-item reveal reveal-delay-6"><span class="icon">✦</span><h4>Holiday Gifts</h4></div>
+            </div>
+            <div class="text-center" style="margin-top:32px;">
+                <a href="#booking" class="btn btn-gold">Purchase Gift Voucher</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MEMBERSHIP ===== -->
+    <section id="membership" aria-labelledby="membership-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Membership</span>
+                <h2 id="membership-title" class="heading heading-lg">Elevate Your Wellness Journey</h2>
+            </div>
+            <div class="membership-grid">
+                <div class="membership-card reveal reveal-delay-1">
+                    <h4>Silver</h4>
+                    <div class="price">KES 8,500 <span>/ mo</span></div>
+                    <ul>
+                        <li>Priority Booking</li>
+                        <li>10% Monthly Discount</li>
+                        <li>Exclusive Events</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-secondary btn-sm">Join</a>
+                </div>
+                <div class="membership-card premium reveal reveal-delay-2">
+                    <h4>Gold</h4>
+                    <div class="price">KES 15,000 <span>/ mo</span></div>
+                    <ul>
+                        <li>Priority Booking</li>
+                        <li>20% Monthly Discount</li>
+                        <li>Exclusive Events</li>
+                        <li>Complimentary Treatment</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-gold btn-sm">Join</a>
+                </div>
+                <div class="membership-card reveal reveal-delay-3">
+                    <h4>Black Signature</h4>
+                    <div class="price">KES 28,000 <span>/ mo</span></div>
+                    <ul>
+                        <li>Priority Booking</li>
+                        <li>30% Monthly Discount</li>
+                        <li>Exclusive Events</li>
+                        <li>Complimentary Treatments</li>
+                        <li>Birthday Rewards</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary btn-sm">Join</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" aria-labelledby="faq-title">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">FAQ</span>
+                <h2 id="faq-title" class="heading heading-lg">Questions? We're Here.</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="question" role="button" tabindex="0" aria-expanded="false">
+                        Do I need to book in advance?
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">Yes, we recommend booking at least 24 hours in advance to secure your preferred time and therapist.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <div class="question" role="button" tabindex="0" aria-expanded="false">
+                        How long are treatments?
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">Treatments range from 45 minutes to 3 hours, depending on the service. Our team will confirm duration at booking.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-3">
+                    <div class="question" role="button" tabindex="0" aria-expanded="false">
+                        Can couples book together?
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">Absolutely! We offer couples massage and side-by-side treatments in our luxury suites.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-4">
+                    <div class="question" role="button" tabindex="0" aria-expanded="false">
+                        What products do you use?
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">We use premium, dermatologically-tested skincare and wellness products from leading global brands.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-5">
+                    <div class="question" role="button" tabindex="0" aria-expanded="false">
+                        Are gift vouchers available?
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">Yes, we offer luxury gift vouchers for all occasions. Contact us or visit our spa to purchase.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <a href="#" class="logo" style="color:#fff;">
+                    <span class="logo-icon" style="background:linear-gradient(135deg,var(--lavender),var(--gold));"></span>
+                    Soul<span style="color:var(--gold);">springs</span>
+                </a>
+                <p>Luxury wellness and beauty in the heart of Nairobi. Where elegance meets self-care.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Facebook">👍</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                    <a href="#" aria-label="TikTok">🎵</a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Massage</a></li>
+                    <li><a href="#services">Beauty Lounge</a></li>
+                    <li><a href="#services">Facial Studio</a></li>
+                    <li><a href="#services">Luxury Experiences</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#booking">Contact</a></li>
+                    <li><a href="#gift">Gift Vouchers</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <span>&copy; 2026 Soulsprings Wellness Spa. All rights reserved.</span>
+                <span>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SUCCESS MODAL ===== -->
+    <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-box">
+            <div class="icon">✦</div>
+            <h3 id="modal-title">Reservation Confirmed</h3>
+            <p>Thank you for booking your luxury experience at Soulsprings. We look forward to welcoming you.</p>
+            <button class="btn btn-gold" id="modalClose">Wonderful</button>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // --- LOADER ---
+            window.addEventListener('load', function() {
+                const loader = document.getElementById('loader');
+                setTimeout(function() {
+                    loader.classList.add('hide');
+                }, 800);
+            });
+
+            // --- NAV SCROLL ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 60) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // --- MOBILE NAV ---
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('open');
+                const expanded = this.classList.contains('active');
+                this.setAttribute('aria-expanded', expanded);
+            });
+            // Close on link click
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // --- SCROLL REVEAL ---
+            const reveals = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            reveals.forEach(function(el) {
+                revealObserver.observe(el);
+            });
+
+            // --- COUNTER ANIMATION ---
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-target'), 10);
+                        let current = 0;
+                        const increment = Math.ceil(target / 60);
+                        const timer = setInterval(function() {
+                            current += increment;
+                            if (current >= target) {
+                                el.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                el.textContent = current;
+                            }
+                        }, 25);
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(function(el) {
+                counterObserver.observe(el);
+            });
+
+            // --- FAQ ACCORDION ---
+            const faqQuestions = document.querySelectorAll('.faq-item .question');
+            faqQuestions.forEach(function(q) {
+                q.addEventListener('click', function() {
+                    const answer = this.parentElement.querySelector('.answer');
+                    const toggle = this.querySelector('.toggle');
+                    const isOpen = answer.classList.contains('open');
+                    // Close all
+                    document.querySelectorAll('.faq-item .answer').forEach(function(a) {
+                        a.classList.remove('open');
+                    });
+                    document.querySelectorAll('.faq-item .toggle').forEach(function(t) {
+                        t.classList.remove('open');
+                        t.textContent = '+';
+                    });
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        toggle.classList.add('open');
+                        toggle.textContent = '−';
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        this.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                // Keyboard support
+                q.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // --- BOOKING FORM ---
+            const bookingForm = document.getElementById('bookingForm');
+            const successModal = document.getElementById('successModal');
+            const modalClose = document.getElementById('modalClose');
+
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Basic validation
+                const name = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const service = document.getElementById('service').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+
+                if (!name || !phone || !email || !service || !date || !time) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                // Show success
+                successModal.classList.add('active');
+                // Reset form
+                bookingForm.reset();
+                // Close modal
+                modalClose.addEventListener('click', function() {
+                    successModal.classList.remove('active');
+                });
+                successModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                    }
+                });
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && successModal.classList.contains('active')) {
+                        successModal.classList.remove('active');
+                    }
+                });
+            });
+
+            // --- SMOOTH SCROLL FOR NAV LINKS ---
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // --- SET MIN DATE FOR BOOKING ---
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+
+        })();
+    </script>
+</body>
+</html>
